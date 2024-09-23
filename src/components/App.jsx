@@ -91,20 +91,20 @@ const App = () => {
   };
 
   return (
-    <div>
-      <SearchBar onSubmit={handleSearch} />
-      <Toaster reverseOrder={false} position='top-right' />
-      {loading && <Loader />}
-      {error && <ErrorMessage message={error} />}
-      <ImageGallery images={images} onImageClick={handleImageClick} />
-      {images.length > 0 && !loading && (
-        <LoadMoreBtn onClick={loadMoreImages} />
-      )}
-      {showModal && selectedImage && (
-        <ImageModal image={selectedImage} onClose={closeModal} isOpen={showModal} />
-      )}
-    </div>
-  );
+  <div>
+    <SearchBar onSubmit={handleSearch} />
+    <Toaster reverseOrder={false} position="top-right" />
+    {error && <ErrorMessage message={error} />}
+    <ImageGallery images={images} onImageClick={handleImageClick} />
+    {loading && <Loader />}
+    {images.length > 0 && !loading && (
+      <LoadMoreBtn onClick={loadMoreImages} />
+    )}
+    {showModal && selectedImage && (
+      <ImageModal image={selectedImage} onClose={closeModal} isOpen={showModal} />
+    )}
+  </div>
+);
 };
 
 export default App;
