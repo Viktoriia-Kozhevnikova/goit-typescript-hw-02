@@ -23,7 +23,6 @@ const App = () => {
     if (!query) return;
 
   const fetchAndDisplayImages = async () => {
-    setImages([]);
     setLoading(true);
     setError('');
     try {
@@ -65,12 +64,15 @@ const App = () => {
   }, [query, page]);  
 
 
-
-  const handleSearch = async (searchQuery) => {
-    if (query === searchQuery) return;
+  const handleSearch = (searchQuery) => {
+    if (searchQuery.trim() === '') {
+      toast.error('Please enter a search query!');
+      return;
+    }
     setQuery(searchQuery);
+    setImages([]);
     setPage(1);
-};
+  };
 
   const loadMoreImages = () => {
     setPage((prev) => prev + 1);
