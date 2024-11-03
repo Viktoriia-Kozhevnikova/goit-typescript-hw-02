@@ -1,5 +1,13 @@
+.loaderContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .loader {
     display: flex;
     justify-content: center;
     margin: 20px 0;
+    height: 66px;
+    width: 66px;
 }
